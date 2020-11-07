@@ -1,3 +1,4 @@
+import rospy
 
 class LowPassFilter(object):
     def __init__(self, tau, ts):
@@ -6,11 +7,13 @@ class LowPassFilter(object):
 
         self.last_val = 0.
         self.ready = False
+        rospy.logerr("In Low PASS Filter")
 
     def get(self):
         return self.last_val
 
     def filt(self, val):
+        #rospy.logerr("Low PASS Filter VALUE - %l", val)
         if self.ready:
             val = self.a * val + self.b * self.last_val
         else:
