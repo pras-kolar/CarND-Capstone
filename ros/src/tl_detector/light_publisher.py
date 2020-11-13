@@ -46,9 +46,8 @@ class TLPublisher(object):
         pose = PoseStamped()
 
         pose.header = Header()
+        pose.header.frame_id = '/world'        
         pose.header.stamp = rospy.Time.now()
-        pose.header.frame_id = '/world'
-
         pose.pose.position.x = x
         pose.pose.position.y = y
         pose.pose.position.z = z
