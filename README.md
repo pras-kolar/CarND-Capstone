@@ -82,7 +82,7 @@ The system and controls unit is the final module which commands the simulated ca
 
 ## Node Development
 
-![ROS Architecture](./ros/output/carnd_architecture.png)
+![ROS Architecture](./ros/output/final-project-ros-graph-v2.png)
 ### Waypoint Loader
 
 ### Waypoint Updater
