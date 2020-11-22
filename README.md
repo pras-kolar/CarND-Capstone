@@ -43,7 +43,6 @@ This project can be implemented in a simulator or on the smart vehicle.  Due to 
 
 ### CARLA Architecture
 Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. The self-driving system can be broken down into four major sub-systems: Sensor suite, Perception, Planning and finally the Control sub system.
-[System Architecture](./ros/output/carla_architecture.png)
 ![System Architecture](./ros/output/carla_architecture.png)
 
 
@@ -55,6 +54,7 @@ Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. The
 ### Sensing and Perception
 The sensors 'read' or 'measure' the world or the environment that the autonomous vehicle works in and provides the data to the perception module.  The system in this project has multiple sensors, which may also be termed as a sensor suite.  The sensors are camera, lidar, sonar, GPS and other related odometric sensors.  For the sake of the completion of this project, camera and localiztaion sensors will be used.
 The Perception sub-module accepts the data from the sensing sub-module and processes it.  The output is provided to the localization submodule and detection submodules.  Further to this, the processed data is sent to the machine learning modules such as traffic light detection module, the identification and classification modules.  The output of the localization and the perception submodules are also input the controls sub-module.  As part of this project, a Proportional(P) Integral(I) and Diffential(D) - PID controller is implemented, which takes in input from the perception module and sends commands to the Drive By Wire(DBW unit.  The DBW also signals or controls the drive system on the car CARLA either simulated or the real car.  We can term that that the perception sub-module is capable of abstracting the raw data coming from the sensors into localization and traffic light detection functionalities.
+
 
 ### Path planning
 The Path Planning component can be broken into  Route, Localization and Trajectory planning sub-components.
@@ -82,13 +82,16 @@ The system and controls unit is the final module which commands the simulated ca
 
 ## Node Development
 
+![ROS Architecture](./ros/output/final-project-ros-graph-v2.png)
 ### Waypoint Loader
 
 ### Waypoint Updater
+![Waypoint Updater](./ros/output/waypoint-updater-ros-graph.png)
 
 ### Traffic light system
 
 #### Traffic light Detector
+![Traffic light detection](./ros/output/tl-detector-ros-graph.png)
 
 #### Traffic light image classifier
 
