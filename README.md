@@ -84,19 +84,25 @@ The system and controls unit is the final module which commands the simulated ca
 
 ![ROS Architecture](./ros/output/final-project-ros-graph-v2.png)
 ### Waypoint Loader
-
+The wayopint loader module loads the base or the initial waypoints into the system and 
+The node *waypoint_loader.py* handles the functionality.
 ### Waypoint Updater
 ![Waypoint Updater](./ros/output/waypoint-updater-ros-graph.png)
-
+The wayopint updater module updates the previously accepted waypoints in the system baesd on the path planning input and also the behavioral planning input.
+The node *waypoint_updater.py* handles the functionality.
 ### Traffic light system
+A neural network has been trained to detect traffic lights in the simulator.  This system first detects traffic lights and then calls the classification module.
+The trafficlight sub-component deals with detecting the traffic light in the image and then classifying the traffic lights in the image.  
 
 #### Traffic light Detector
 ![Traffic light detection](./ros/output/tl-detector-ros-graph.png)
+This is the first module that accepts the image from the camera and starts processing it.
 
 #### Traffic light image classifier
+As part of this project a traffic light classifier was developed.  This sub-component accepts the image input and detects the presence of the traffic light(s) and then classifies and identifies whether its a RED, YELLOW or GREEN light.  Based the type of light, an appropriate control decision is taken whether to deccelarate, continue or stop 
 
 ### Other library/driver information
-Outside of `requirements.txt`, here is information on other driver/library versions used in the simulator and Carla:
+In addition to the `requirements.txt` file, here is information on other driver/library versions used in the simulator and Carla:
 
 Specific to these libraries, the simulator grader and Carla use the following:
 
