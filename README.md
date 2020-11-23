@@ -43,7 +43,7 @@ This project can be implemented in a simulator or on the smart vehicle.  Due to 
 
 ### CARLA Architecture
 Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. The self-driving system can be broken down into four major sub-systems: Sensor suite, Perception, Planning and finally the Control sub system.
-![System Architecture](./ros/output/carla_architecture.png)
+![System Architecture](./ros/output/carnd_architecture.png)
 
 
 ### ROS Architecture
