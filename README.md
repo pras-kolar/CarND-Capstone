@@ -125,11 +125,11 @@ While the lap was being driven, whenever the car encountered a RED traffic light
 
 Below are some images wherein the car successfully detected traffic lights and also classified them accurately.
 
-![RED Light](./ros/output/RED.png)
+![RED Light](./ros/output/RED.jpg)
 
-![YELLOW Light](./ros/output/YELLOW.png)
+![YELLOW Light](./ros/output/YELLOW.jpg)
 
-![GREEN Light](./ros/output/GREEN.png)
+![GREEN Light](./ros/output/GREEN.jpg)
 
 
 
