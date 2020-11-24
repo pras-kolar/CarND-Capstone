@@ -2,7 +2,7 @@
 ## Introduction
 This document provides the introduction, details and results of the final project for the Udacity Self-Driving Car Engineer Nanodegree. As part of this project completion, a solo effort was performed that resulted in updating existing nodes from Udacity and also creation of new nodes to implement core functionality of an autonomous vehicle. More information about this project can be obtained from the project introduction here.
 
-![Video - Car Start](./ros/output/Car_start_green.MP4)
+- [<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/x8il-RHeWRM "Start at Green") Quick Introduction - Car Start
 
 ## Team
 
@@ -50,6 +50,8 @@ Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. The
 
 ### ROS Architecture
 
+The ROS framework comprises of Packages, nodes, topics, messages, launch files and services to name a few.  This Capstone system comprises of C++ and Python predominantly
+![ROS Architecture](../imgs/autoware_computing.png)
 
 ### Simulation
 
