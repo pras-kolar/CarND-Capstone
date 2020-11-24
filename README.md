@@ -6,7 +6,7 @@ This document provides the introduction, details and results of the final projec
 
 ## Team
 
-This project was completed individually by Prasanna Kolar
+This project was completed individually by Prasanna Kolar - email: prasanna.utsa@gmail.com
 
 ## Setup Instructions
 
