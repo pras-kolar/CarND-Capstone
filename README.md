@@ -139,7 +139,7 @@ Below are some images wherein the car successfully detected traffic lights and a
 ![Car starts](./ros/output/Car_start_green.MP4)
 
 [![Start at Green](https://youtu.be/x8il-RHeWRM "Start at Green")
-[![Start at Green]({https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREt9GFrwaapQgz3iMmkct2sqKHJzOuhHHe-A&usqp=CAU})]({https://youtu.be/x8il-RHeWRM} "Start at Green")
+[![Start at Green](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREt9GFrwaapQgz3iMmkct2sqKHJzOuhHHe-A&usqp=CAU)](https://youtu.be/x8il-RHeWRM "Start at Green")
 
 ![Car drives through Green](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
 
