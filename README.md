@@ -135,6 +135,7 @@ Below are some images wherein the car successfully detected traffic lights and a
 
 
 ### Simulation Results
+<img src="./ros/output/Car_image.PNG" alt="drawing" width="200"/>
 
 [![Start at Green] (./ros/output/Car_image.PNG =100x20)](https://youtu.be/x8il-RHeWRM "Start at Green")
 
