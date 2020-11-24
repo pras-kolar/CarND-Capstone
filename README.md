@@ -2,6 +2,8 @@
 ## Introduction
 This document provides the introduction, details and results of the final project for the Udacity Self-Driving Car Engineer Nanodegree. As part of this project completion, a solo effort was performed that resulted in updating existing nodes from Udacity and also creation of new nodes to implement core functionality of an autonomous vehicle. More information about this project can be obtained from the project introduction here.
 
+![Video - Car Start](./ros/output/Car_start_green.MP4)
+
 ## Team
 
 This project was completed individually by Prasanna Kolar
@@ -132,7 +134,17 @@ Below are some images wherein the car successfully detected traffic lights and a
 ![GREEN Light](./ros/output/GREEN.jpg)
 
 
+### Simulation Results
 
+![Car starts](./ros/output/Car_start_green.MP4)
 
-### Real-world system 
+![Car drives through Green](./ros/output/Car_gothru_green_yellow.MP4)
 
+![Car stops at Red light](./ros/output/Car_stop_red.MP4)
+
+## Lessons Learnt
+
+- Plan more time for project
+- Document project better
+- Discuss with mentors and ensure that a working local system is available
+- Discuss issues with mentors and ensure response back on time.
