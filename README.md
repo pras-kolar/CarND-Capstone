@@ -137,15 +137,17 @@ Below are some images wherein the car successfully detected traffic lights and a
 ### Simulation Results
 
 ![Car starts](./ros/output/Car_start_green.MP4)
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFIXgWGnKRoqhCVreqJ75J_rA-sOfHT9S3Rg&usqp=CAU
 
-[![Start at Green](https://youtu.be/x8il-RHeWRM "Start at Green")
-[![Start at Green](https://youtu.be/x8il-RHeWRM)](https://youtu.be/x8il-RHeWRM "Start at Green")
+[![Start at Green (https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFIXgWGnKRoqhCVreqJ75J_rA-sOfHT9S3Rg&usqp=CAU)](https://youtu.be/x8il-RHeWRM "Start at Green")
 
-![Car drives through Green](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
+[![Start at Green](https://youtu.be/x8il-RHeWRM/0.jpg)](https://youtu.be/x8il-RHeWRM "Start at Green")
 
-![Car stops at Red light](https://youtu.be/igucPeQN8iU "Car Stops at Red light")
+[![Car drives through Green]](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
 
-![Car full simulator lap](https://youtu.be/cuLUghUPuE0)
+[![Car stops at Red light]](https://youtu.be/igucPeQN8iU "Car Stops at Red light")
+
+[![Car full simulator lap]](https://youtu.be/cuLUghUPuE0 "Full lap on the simulator")
 
 ## Lessons Learnt
 
