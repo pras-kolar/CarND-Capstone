@@ -119,6 +119,20 @@ Specific to these libraries, the simulator grader and Carla use the following:
 ## Tests
 
 ### Simulation system
+The Simulation environment was tested with the car successfully completing a full lap of the course.  The car remained in lane most of the time, except during correctional lane changes.  The car did not move to left of the left most lane or to the right of the right most lane.  i.e., at all times, the car was within the lanes driving on the right side of the road.
+
+While the lap was being driven, whenever the car encountered a RED traffic light, the car stopped and started only after a GREEN light was displayed.
+
+Below are some images wherein the car successfully detected traffic lights and also classified them accurately.
+
+![RED Light](./ros/output/RED.png)
+
+![YELLOW Light](./ros/output/YELLOW.png)
+
+![GREEN Light](./ros/output/GREEN.png)
+
+
+
 
 ### Real-world system 
 
