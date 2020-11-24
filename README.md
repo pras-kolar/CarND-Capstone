@@ -51,7 +51,7 @@ Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. The
 ### ROS Architecture
 
 The ROS framework comprises of Packages, nodes, topics, messages, launch files and services to name a few.  This Capstone system comprises of C++ and Python predominantly
-![ROS Architecture](../imgs/autoware_computing.png)
+![ROS Architecture](./imgs/autoware_computing.png)
 
 ### Simulation
 
