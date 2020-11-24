@@ -137,11 +137,14 @@ Below are some images wherein the car successfully detected traffic lights and a
 ### Simulation Results
 
 ![Car starts](./ros/output/Car_start_green.MP4)
-[![Start at Green](./ros/output/Car_start_green.MP4 "Start at Green")
 
-![Car drives through Green](./ros/output/Car_gothru_green_yellow.MP4)
+[![Start at Green](https://youtu.be/x8il-RHeWRM "Start at Green")
 
-![Car stops at Red light](./ros/output/Car_stop_red.MP4)
+![Car drives through Green](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
+
+![Car stops at Red light](https://youtu.be/igucPeQN8iU "Car Stops at Red light")
+
+![Car full simulator lap](https://youtu.be/cuLUghUPuE0)
 
 ## Lessons Learnt
 
