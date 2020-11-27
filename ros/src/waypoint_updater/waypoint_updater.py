@@ -67,6 +67,12 @@ class WaypointUpdater(object):
         self.loop()
         
     def loop(self):
+        """
+        Function    : Common highlevel looper that calls required codes
+        
+        Input Args  : None
+        Output      : None
+        """
         rate = rospy.Rate(30)
         while not rospy.is_shutdown():
             if self.pose and self.base_lane:
@@ -75,6 +81,12 @@ class WaypointUpdater(object):
             
 
     def get_closest_waypoint_idx(self):
+        """
+        Function    : Calculate the index of the closest waypoint
+        
+        Input Args  : None
+        Output      : Index of closest waypoint
+        """
         x = self.pose.pose.position.x
         y = self.pose.pose.position.y
         if self.waypoint_tree is None:
@@ -82,6 +94,7 @@ class WaypointUpdater(object):
         # Calculate the index of the closest waypoint, calculate the related coordinate
         closest_index = self.waypoint_tree.query([x,y],1)[1]
         closest_coord = self.waypoints_2d[closest_index]
+        
         # Calculate the index of the previous waypoint of the closest waypoint
         previous_coord = self.waypoints_2d[closest_index-1]
 
@@ -91,7 +104,7 @@ class WaypointUpdater(object):
         position_vector = np.array([x, y])
         
         value = np.dot(closest_vector - prev_vector, position_vector - closest_vector)
-        
+
         #Waypoint behind current car position
         if value > 0:
             closest_index = (closest_index + 1) % len(self.waypoints_2d)
@@ -99,27 +112,43 @@ class WaypointUpdater(object):
         
     #pose callback that populates the values in the pose class variable    
     def pose_cb(self, msg):
+        """
+        Function    : Function that copies the topic information to the class pose 
+        
+        Input Args  : topic message
+        Output      : None
+        """        
         # TODO: Implement
         self.pose = msg
-
-    #waypoint callback that populates the values in the waypoint class variable    
+       
     def waypoints_cb(self, waypoints):
+        """
+        Function    : waypoint callback that populates 
+        the values in the waypoint class variable 
+        
+        Input Args  : waypoints
+        Output      : None
+        """        
         # TODO: Implement
-        #if waypoints is not None:
         self.base_lane = waypoints
         if not self.waypoints_2d:
             self.waypoints_2d = [[waypoint.pose.pose.position.x, waypoint.pose.pose.position.y] for waypoint in waypoints.waypoints]
             self.waypoint_tree = KDTree(self.waypoints_2d)
         rospy.logerr("In waypoints cb")         
 
-    #traffic light callback that performs traffic and related data processing
+    
     def traffic_cb(self, msg):  # course
+        """
+        Function    : traffic light callback that performs traffic 
+        and related data processing
+        
+        Input Args  : traffic data
+        Output      : None
+        """                
         rospy.logerr("In traffic cb")
         # TODO: Callback for /traffic_waypoint message. Implement
         self.red_trafficlight_waypoint = msg.data
         rospy.loginfo("Traffic light is : " + str(msg.data))
-        #if self.stopline_wp_inx > -1:
-        #    self.publish()
 
     #Obstacke callback that will be implemented later
     def obstacle_cb(self, msg):
@@ -127,15 +156,34 @@ class WaypointUpdater(object):
         pass
 
     def get_waypoint_velocity(self, waypoint):
+        """
+        Function    : traffic light callback that performs traffic 
+        and related data processing
+        
+        Input Args  : Waypoints
+        Output      : Velocity component
+        """                        
         rospy.logerr("In GET waypoints VELOCITY")
         return waypoint.twist.twist.linear.x
 
     def set_waypoint_velocity(self, waypoints, waypoint, velocity):
+        """
+        Function    : Sets velocity for the waypoint in question
+        
+        Input Args  : Waypoints waypoint and velocity components
+        Output      : None
+        """
         rospy.logerr("In SET waypoints VELOCITY")
         waypoints[waypoint].twist.twist.linear.x = velocity
 
     #Calculate the distance between 2 waypoints
     def distance(self, waypoints, wp1, wp2):
+        """
+        Function    : Calculates distance between 2 waypoints 
+        
+        Input Args  : 2 waypoints
+        Output      : distance component
+        """
         #rospy.logerr("DISTANCE")
         dist = 0
         dl = lambda a, b: math.sqrt((a.x-b.x)**2 + (a.y-b.y)**2  + (a.z-b.z)**2)
@@ -144,8 +192,13 @@ class WaypointUpdater(object):
             wp1 = i
         return dist
 
-    #Code to generate lane related waypoints
     def generate_lane(self):
+        """
+        Function    : Code to generate lane related waypoints
+        
+        Input Args  : None
+        Output      : Lane components
+        """
         #rospy.logerr("In GENERATE LANE ")
         lane = Lane()
         closest_wp_index = self.get_closest_waypoint_idx()
@@ -161,8 +214,14 @@ class WaypointUpdater(object):
         
         return lane
 
-    #Decelerate the car if red light and close to it
+    
     def decelerate_waypoints(self, waypoints, closest_index):
+        """
+        Function    : Decelerate the car if red light and stop close to it
+        
+        Input Args  : Waypoints and closest Red light index
+        Output      : temporary deceleration waypoints
+        """
         rospy.logerr("In Decelerate waypoints")
         temp_waypoints = []
         print("Waypoints : ", waypoints)
@@ -173,7 +232,7 @@ class WaypointUpdater(object):
             
             stop_index = max(self.red_trafficlight_waypoint - closest_index - 3, 0)
             distance = self.distance(waypoints, i, stop_index)
-            velocity = math.sqrt(2* DECELARATION_LIMIT * distance)# + (i * SMOOTH_DECEL)  #SMOOTH_DECEL needed for smoother slowing
+            velocity = math.sqrt(2* DECELARATION_LIMIT * distance) #+ (i * SMOOTH_DECEL)  #SMOOTH_DECEL needed for smoother slowing
             # Can also implement a S curve implementation here
             if velocity < 1.0:
                 velocity = 0.
@@ -189,8 +248,14 @@ class WaypointUpdater(object):
             # Logging the messages for information and documentation
 
         return temp_waypoints
-    #Publish all the related waypoints; calculated and then passed here
+    
     def publish_waypoints(self):
+        """
+        Function    : Simple publisher to Publish all the related waypoints; calculated and then passed here
+        
+        Input Args  : None
+        Output      : None
+        """        
         final_wp = self.generate_lane()
         self.final_waypoints_pub.publish(final_wp)
         
