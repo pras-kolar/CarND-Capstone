@@ -3,9 +3,15 @@ import tensorflow as tf
 import numpy as np
 import cv2 
 import rospy
+import time
 
-traffic_light_state = ['Green', 'Yellow', 'Red', 'Unknown', 'Unknown']
+traffic_light_state = ['Green', 'Yellow', 'Red', 'Unknown']
+"""
+Traffic Light Classifier that uses a trained model given in the path and its information to detect
+the light and hence the state of the traffic light.  
 
+
+"""
 class TLClassifier(object):
     def __init__(self, is_site):
         if is_site:
@@ -25,7 +31,11 @@ class TLClassifier(object):
                 od_graph_def.ParseFromString(serialized_graph)
                 rospy.logerr("After parsing before Importing graph")
                 tf.import_graph_def(od_graph_def, name='')
-        
+                
+            # tensor information below
+            # Image, detection box, detection score and detection class
+            # create a tensor flow session for detection
+            
             self.image_tensor = self.graph.get_tensor_by_name('image_tensor:0')
             self.detection_boxes = self.graph.get_tensor_by_name('detection_boxes:0')
             self.detection_scores = self.graph.get_tensor_by_name('detection_scores:0')
@@ -35,11 +45,11 @@ class TLClassifier(object):
 
     def to_image_coords(self, boxes, height, width):
         """
-        The original box coordinate output is normalized, i.e [0, 1].
+        Function    : Convert the normalized coordinates to original coordinate based on the image size.
         
-        This converts it back to the original coordinate based on the image
-        size.
-        """
+        Input Args  : traffic image Width, height and box information
+        Output      : None
+        """   
         box_coords = np.zeros_like(boxes)
         box_coords[:, 0] = boxes[:, 0] * height
         box_coords[:, 1] = boxes[:, 1] * width
@@ -50,7 +60,12 @@ class TLClassifier(object):
 
 
     def draw_boxes(self, image, boxes, classes, scores):
-        """Draw bounding boxes on the image"""
+        """
+        Function    : Draw bounding boxes based on the input information
+        
+        Input Args  : traffic image, box information, scores and class detaails
+        Output      : None
+        """  
         for i in range(len(boxes)):
             top, left, bot, right = boxes[i, ...]
             cv2.rectangle(image, (left, top), (right, bot), (255,0,0), 3)
@@ -58,7 +73,14 @@ class TLClassifier(object):
             cv2.putText(image , text, (left, int(top - 5)), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (200,0,0), 1, cv2.LINE_AA)
 
     def filter_boxes(self, min_score, boxes, scores, classes):
-        """Return boxes with a confidence >= `min_score`"""
+        """
+        Function    : Perform bounding box filtering based on a minimum score
+                      Return bounding box information where confidence >= a minimum score
+        
+        Input Args  : minimum confidence scores, bounding box info, scores and classes 
+        Output      : filtered box,filtered scores and filtered class detaails
+        """  
+        
         n = len(classes)
         idxs = []
         for i in range(n):
@@ -72,15 +94,13 @@ class TLClassifier(object):
 
 
     def get_classification(self, image, is_site):
-        """Determines the color of the traffic light in the image
-
-        Args:
-            image (cv::Mat): image containing the traffic light
-
-        Returns:
-            int: ID of traffic light color (specified in styx_msgs/TrafficLight)
-
         """
+        Function    : Determines the color of the traffic light in the image
+        
+        Input Args  : image containing the traffic light
+        Output      : ID of traffic light color (specified in styx_msgs/TrafficLight)
+        """ 
+        timestr = time.strftime("%Y%m%d-%H%M%S")
         image = np.dstack((image[:, :, 2], image[:, :, 1], image[:, :, 0]))
         if is_site:
             width = image.shape[1]
@@ -102,15 +122,16 @@ class TLClassifier(object):
             # Filter boxes with a confidence score less than `confidence_cutoff`
             boxes, scores, classes = self.filter_boxes(confidence_cutoff, boxes, scores, classes)
         
-        # Save boxed images
+        # Save boxed images ; filename will be created uniquely based on timestamp
         write = True
         if write:
             image = np.dstack((image[:, :, 2], image[:, :, 1], image[:, :, 0]))
             width, height = image.shape[1], image.shape[0]
             box_coords = self.to_image_coords(boxes, height, width) 
             self.draw_boxes(image, box_coords, classes, scores)
-            cv2.imwrite('/home/workspace/CarND-Capstone/imgs/img.jpg', image)
-        
+            #cv2.imwrite('/home/workspace/CarND-Capstone/imgs/img.jpg', image)
+            fname = '/home/workspace/CarND-Capstone/imgs/img_'+timestr+'.jpg'
+            cv2.imwrite(fname, image)            
         
         if len(scores)>0:
             this_class = int(classes[np.argmax(scores)])
