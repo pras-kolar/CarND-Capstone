@@ -3,7 +3,7 @@
 This document provides the introduction, details and results of the final project for the Udacity Self-Driving Car Engineer Nanodegree. As part of this project completion, a solo effort was performed that resulted in updating existing nodes from Udacity and also creation of new nodes to implement core functionality of an autonomous vehicle. More information about this project can be obtained from the project introduction here.
 
 ### Car Start
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/x8il-RHeWRM "Start at Green") 
+[<img src="./ros/output/Car_image.PNG" alt="drawing" width="90"/>](https://youtu.be/x8il-RHeWRM "Start at Green") 
 
 ## Team
 
@@ -45,9 +45,10 @@ This project can be implemented in a simulator or on the smart vehicle.  Due to 
 ## Architecture 
 
 ### CARLA Architecture
-Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. The self-driving system can be broken down into four major sub-systems: Sensor suite, Perception, Planning and finally the Control sub system.
-![System Architecture](./ros/output/carnd_architecture.png)
+Carla is a custom Lincoln MKZ that Udacity modified into a self-driving car. 
 
+![System Architecture alt="drawing"<](./ros/output/carnd_architecture.png)
+The self-driving system can be broken down into four major sub-systems: Sensor suite, Perception, Planning and finally the Control sub system.
 
 ### ROS Architecture
 
@@ -140,16 +141,16 @@ Below are some images wherein the car successfully detected traffic lights and a
 ### Simulation Videos 
 
 #### Car starts
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/x8il-RHeWRM "Start at Green")
+[<img src="./ros/output/Car_image.PNG" alt="drawing" height="50" width="50"/>](https://youtu.be/x8il-RHeWRM "Start at Green")
 
 #### Car drives through Green and Yellow light
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
+[<img src="./ros/output/Car_image.PNG" alt="drawing" height="50" width="50"/>](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
 
 #### Car Stops at Red light
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/igucPeQN8iU "Car Stops at Red light") 
+[<img src="./ros/output/Car_image.PNG" alt="drawing" height="50" width="50"/>](https://youtu.be/igucPeQN8iU "Car Stops at Red light") 
 
 #### Full Lap 
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/cuLUghUPuE0 "Full lap on the simulator") 
+[<img src="./ros/output/Car_image.PNG" alt="drawing" height="50" width="50"/>](https://youtu.be/cuLUghUPuE0 "Full lap on the simulator") 
 
 
 ## Lessons Learnt
