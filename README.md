@@ -137,19 +137,23 @@ Below are some images wherein the car successfully detected traffic lights and a
 ![GREEN Light](./ros/output/GREEN.jpg)
 
 
-### Simulation Results
+### Simulation Videos 
 
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/x8il-RHeWRM "Start at Green") Car starts
+#### Car starts
+[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/x8il-RHeWRM "Start at Green")
 
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light") Car drives through Green and Yellow light
+#### Car drives through Green and Yellow light
+[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/NwstGUfLxK0 "Car drives through Green and Yellow light")
 
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/igucPeQN8iU "Car Stops at Red light") Car Stops at Red light
+#### Car Stops at Red light
+[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/igucPeQN8iU "Car Stops at Red light") 
 
-[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/cuLUghUPuE0 "Full lap on the simulator") Full Lap
+#### Full Lap 
+[<img src="./ros/output/Car_image.PNG" alt="drawing" width="100"/>](https://youtu.be/cuLUghUPuE0 "Full lap on the simulator") 
+
 
 ## Lessons Learnt
 
-- Plan more time for project
-- Document project better
-- Discuss with mentors and ensure that a working local system is available
+- Plan more time for project.
+- Discuss with mentors and ensure that a working local system is available.
 - Discuss issues with mentors and ensure response back on time.
