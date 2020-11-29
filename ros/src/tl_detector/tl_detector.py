@@ -1,14 +1,18 @@
 #!/usr/bin/env python
+
+# ROS Imports
 import rospy
 from std_msgs.msg import Int32
 from geometry_msgs.msg import PoseStamped, Pose
 from styx_msgs.msg import TrafficLightArray, TrafficLight
 from styx_msgs.msg import Lane
 from sensor_msgs.msg import Image
-from cv_bridge import CvBridge
 from light_classification.tl_classifier import TLClassifier
-import tf
+
+# Non-ROS related imports
 import cv2
+from cv_bridge import CvBridge
+import tf
 import yaml
 from scipy.spatial import KDTree
 
